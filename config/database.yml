@@ -81,6 +81,6 @@ test:
 #
 production:
   <<: *default
-  database: blogs
+  database: blogs_production
   username: kamranasif
   password: shani12345
