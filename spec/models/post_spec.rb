@@ -1,5 +1,3 @@
-# spec/models/post_spec.rb
-
 require 'rails_helper'
 
 RSpec.describe Post, type: :model do
@@ -29,7 +27,7 @@ RSpec.describe Post, type: :model do
 
   it 'increments the user posts_counter after creation' do
     user = User.create(name: 'Charlie', posts_counter: 0)
-    post = user.posts.create(title: 'New Post', comments_counter: 0, likes_counter: 0)
+    user.posts.create(title: 'New Post', comments_counter: 0, likes_counter: 0)
     user.reload
     expect(user.posts_counter).to eq(1)
   end
@@ -37,7 +35,7 @@ RSpec.describe Post, type: :model do
   it 'returns the 5 most recent comments' do
     user = User.create(name: 'Charlie', posts_counter: 0)
     post = user.posts.create(title: 'Post with Comments')
-    older_comment = post.comments.create(author: user, body: 'Old comment')
+    post.comments.create(author: user, body: 'Old comment')
     newer_comment1 = post.comments.create(author: user, body: 'Newer comment 1')
     newer_comment2 = post.comments.create(author: user, body: 'Newer comment 2')
     newer_comment3 = post.comments.create(author: user, body: 'Newer comment 3')
