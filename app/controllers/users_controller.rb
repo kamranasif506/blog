@@ -3,6 +3,6 @@ class UsersController < ApplicationController
         render template: 'layouts/users/index'
     end
     def show
-        render template: 'users/show'
+        render template: 'layouts/users/show'
     end
 end
