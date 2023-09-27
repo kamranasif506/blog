@@ -1,16 +1,16 @@
 require 'rails_helper'
 
-RSpec.describe "Posts", type: :request do
+RSpec.describe 'Posts', type: :request do
   let(:valid_attributes) do
     {
-        name: 'Wood'
+      name: 'Wood'
     }
   end
 
   describe 'GET /posts' do
     before :each do
-        @user = User.create! valid_attributes
-        get user_posts_path(@user)
+      @user = User.create! valid_attributes
+      get user_posts_path(@user)
     end
 
     it 'returns a successful response' do
@@ -28,9 +28,9 @@ RSpec.describe "Posts", type: :request do
 
   describe 'GET /posts/:id' do
     before :each do
-        @user = User.create! valid_attributes
-        @post = @user.posts.create(title: 'First post')
-        get user_post_path(@user, @post)
+      @user = User.create! valid_attributes
+      @post = @user.posts.create(title: 'First post')
+      get user_post_path(@user, @post)
     end
 
     it 'returns a successful response' do
