@@ -8,6 +8,6 @@ class PostsController < ApplicationController
     logger.debug(params)
     @user = User.find(params[:user_id])
     @post = @user.posts.find(params[:id])
-    @comments = @post.recent_comments
+    @comments = @post.comments
   end
 end

@@ -10,7 +10,7 @@
         </div>
         <div class="row">
             <div class="col-lg-12 border border-dark">
-                <% post.comments.each do |comment| %>
+                <% post.recent_comments.each do |comment| %>
                     <p class=""><%= comment.author.name %>: <%= comment.body %> </p>
                 <% end %>
 
