@@ -17,7 +17,6 @@ RSpec.feature 'User post index page', type: :feature do
     # Check if user's username is visible
     expect(page).to have_content(user.name)
 
-
     # Check if post titles and bodies are visible
     user.posts.each do |post|
       expect(page).to have_content(post.title)
