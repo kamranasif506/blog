@@ -10,7 +10,7 @@ RSpec.describe 'Users', type: :request do
   describe 'GET /index' do
     before :each do
       @user = User.create! valid_attributes
-      get users_path(current_user:@user )
+      get users_path(current_user: @user)
     end
 
     it 'returns a successful response' do

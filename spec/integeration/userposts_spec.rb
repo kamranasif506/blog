@@ -21,19 +21,15 @@ RSpec.feature 'User post index page', type: :feature do
     # Check if post titles and bodies are visible
     user.posts.each do |post|
       expect(page).to have_content(post.title)
-      expect(page).to have_content(post.text.truncate(50)) # Truncate post body for visibility
+      expect(page).to have_content(post.text.truncate(50))
+      expect(page).to have_content(post.comments.first.body) if post.comments.any?
+      expect(page).to have_content("Comments #{post.comments.count}")
+      expect(page).to have_content("Likes #{post.likes.count}") # Truncate post body for visibility
     end
 
     # Check if the first comments on a post are visible
-    user.posts.each do |post|
-      expect(page).to have_content(post.comments.first.body) if post.comments.any?
-    end
 
     # Check if the number of comments and likes on a post is visible
-    user.posts.each do |post|
-      expect(page).to have_content("Comments #{post.comments.count}")
-      expect(page).to have_content("Likes #{post.likes.count}")
-    end
 
     # Check if the pagination section is visible
     expect(page).to have_css('.pagination')

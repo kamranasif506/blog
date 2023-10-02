@@ -31,11 +31,9 @@ RSpec.feature 'Post show page', type: :feature do
     # Check if usernames of commentors are visible
     post.comments.each do |comment|
       expect(page).to have_content(comment.author.name)
+      expect(page).to have_content(comment.body)
     end
 
     # Check if comments left by commentors are visible
-    post.comments.each do |comment|
-      expect(page).to have_content(comment.body)
-    end
   end
 end
