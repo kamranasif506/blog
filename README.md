@@ -164,6 +164,13 @@ it will run the all the unit test of these project
 - Twitter: [@twitterhandle](https://twitter.com/kamiasif55)
 - LinkedIn: [LinkedIn](https://www.linkedin.com/in/kamran-asif)
 
+
+👤 **Ghulam Shabbir**
+
+- GitHub: [@AJ](https://github.com/AJ193)
+- Twitter: [@AJ](https://twitter.com/GhulamShabbir59)
+- LinkedIn: [@AJ](https://www.linkedin.com/in/ghulam-shabbir-225264247/)
+
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- FUTURE FEATURES -->
