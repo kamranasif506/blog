@@ -1,8 +1,7 @@
 FactoryBot.define do
     factory :post do
-      title { 'Sample Post' }  # Replace with your desired default attributes
+      title { 'Sample Post' } 
       text { 'This is a sample post.' }
-      association :author, factory: :user  # Assuming you have a user factory defined
-      # Add other attributes as needed
+      association :author, factory: :user 
     end
   end

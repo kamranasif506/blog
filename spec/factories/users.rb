@@ -1,8 +1,7 @@
 FactoryBot.define do
     factory :user do
-      name { 'John Doe' }  # Replace with your desired default attributes
+      name { 'John Doe' } 
       photo { 'assets/images/default.jpg' }
       bio { 'Mr: Kamran' }
-      # Add other attributes as needed
     end
   end
