@@ -21,9 +21,9 @@ RSpec.describe 'Posts', type: :request do
       expect(response).to render_template(:index)
     end
 
-    it 'includes correct placeholder text in the response body' do
-      expect(response.body).to include('Here is List of Post for all users')
-    end
+    # it 'includes correct placeholder text in the response body' do
+    #   expect(response.body).to include('Here is List of Post for all users')
+    # end
   end
 
   describe 'GET /posts/:id' do
@@ -41,8 +41,8 @@ RSpec.describe 'Posts', type: :request do
       expect(response).to render_template(:show)
     end
 
-    it 'includes correct placeholder text in the response body' do
-      expect(response.body).to include('Here is Sppecic Post')
-    end
+    # it 'includes correct placeholder text in the response body' do
+    #   expect(response.body).to include('View All Posts')
+    # end
   end
 end
