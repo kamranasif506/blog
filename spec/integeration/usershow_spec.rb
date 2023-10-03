@@ -13,7 +13,7 @@ RSpec.feature 'User show page', type: :feature do
 
   scenario 'User sees user details, bio, and posts' do
     # Check if user's profile picture is visible (assuming you have an image tag)
-    expect(page).to have_css("img") # Adjust this selector as needed
+    expect(page).to have_css('img') # Adjust this selector as needed
 
     # Check if user's username is visible
     expect(page).to have_content(user.name)
@@ -32,7 +32,6 @@ RSpec.feature 'User show page', type: :feature do
   end
 
   scenario 'User clicks on a user post and is redirected to its show page' do
-   
     first('h4 a').click
 
     # Check if the page is redirected to the post's show page
