@@ -8,12 +8,12 @@ RSpec.feature 'User show page', type: :feature do
     visit user_path(user)
   end
 
-  scenario 'Check if users profile picture is visible' { expect(page).to have_css('img') }
+  scenario('Check if users profile picture is visible') { expect(page).to have_css('img') }
   scenario 'Check the number of posts the user has written.' do
     expect(page).to have_content("Number Of posts #{user.posts_counter}")
   end
-  scenario 'Check if users username is visible' { expect(page).to have_content(user.name) }
-  scenario 'Check if users bio is visible' { expect(page).to have_content(user.bio) }
+  scenario('Check if users username is visible') { expect(page).to have_content(user.name) }
+  scenario('Check if users bio is visible') { expect(page).to have_content(user.bio) }
   scenario 'Check if the first 3 posts are visible' do
     user.posts.first(3).each_with_index do |post, index|
       expect(page).to have_content("Post ##{index + 1}")
