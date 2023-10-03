@@ -18,16 +18,15 @@ RSpec.feature 'User index page', type: :feature do
   end
 
   scenario 'User sees username, profile picture, and number of posts' do
-    # Check if each user's username is visible
     expect(page).to have_content(user1.name)
     expect(page).to have_content(user2.name)
     expect(page).to have_content(user3.name)
     expect(page).to have_content(user4.name)
-
-    # Check if each user's profile picture is visible (assuming you have image tags)
+  end
+  scenario 'Check if each users profile picture is visible' do
     expect(page).to have_css('img')
-
-    # Check if the number of posts each user has written is visible
+  end
+  scenario 'Check if the number of posts each user has written is visible' do
     expect(page).to have_content("Number Of posts #{user1.posts_counter}")
     expect(page).to have_content("Number Of posts #{user2.posts_counter}")
     expect(page).to have_content("Number Of posts #{user3.posts_counter}")

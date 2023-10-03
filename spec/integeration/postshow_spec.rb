@@ -8,27 +8,25 @@ RSpec.feature 'Post show page', type: :feature do
     # Create comments and likes for the post
     FactoryBot.create_list(:comment, 3, post: post)
     FactoryBot.create_list(:like, 2, post: post)
+    visit user_post_path(user, post)
   end
 
-  scenario 'User sees post details' do
-    visit user_post_path(user, post)
-
-    # Check if post's title is visible
+  scenario 'Check if posts title is visible' do
     expect(page).to have_content(post.title)
-
-    # Check if the author's username is visible
+  end
+  scenario 'Check if the authors username is visible' do
     expect(page).to have_content(user.name)
-
-    # Check if the number of comments is visible
+  end
+  scenario 'Check if the number of comments is visible' do
     expect(page).to have_content("Comments #{post.comments_counter}")
-
-    # Check if the number of likes is visible
+  end
+  scenario 'Check if the number of likes is visible' do
     expect(page).to have_content("Likes #{post.likes_counter}")
-
-    # Check if the post's body is visible
+  end
+  scenario 'Check if the posts body is visible' do
     expect(page).to have_content(post.text)
-
-    # Check if usernames of commentors are visible
+  end
+  scenario 'Check if usernames of commentors are visible' do
     post.comments.each do |comment|
       expect(page).to have_content(comment.author.name)
       expect(page).to have_content(comment.body)
