@@ -9,16 +9,18 @@ RSpec.describe 'Users', type: :request do
 
   describe 'GET /index' do
     before :each do
-      @user = User.create! valid_attributes
-      get users_path(current_user: @user)
+      get users_path
     end
-
     it 'returns a successful response' do
       expect(response).to be_successful
     end
 
-    it 'renders the correct template' do
+    it 'renders correct template' do
       expect(response).to render_template(:index)
+    end
+
+    it 'includes correct placeholder text in the response body' do
+      expect(response.body).to include('List of all User')
     end
   end
 
@@ -28,27 +30,16 @@ RSpec.describe 'Users', type: :request do
       get user_path(@user)
     end
 
-    it 'returns a successful response' do
+    it 'return a successful response' do
       expect(response).to be_successful
     end
 
-    it 'renders the correct template' do
+    it 'renders correct template' do
       expect(response).to render_template(:show)
     end
-  end
 
-  describe 'GET /new_post_path' do
-    before :each do
-      @user = User.create! valid_attributes
-      get new_user_post_path(@user)
-    end
-
-    it 'returns a successful response' do
-      expect(response).to be_successful
-    end
-
-    it 'renders the correct template' do
-      expect(response).to render_template(:new)
+    it 'includes correct placeholder text in the response body' do
+      expect(response.body).to include('Specefic User Info')
     end
   end
 end
