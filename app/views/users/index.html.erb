@@ -1,11 +1,6 @@
 <section id="body-content" class="container">
-    <% if user_signed_in? %>
-        <%= form_tag(destroy_user_session_path, method: :delete) do %>
-          <%= submit_tag("Sign Out", class: "btn btn-danger") %>
-        <% end %>
-    <% end %>
-
-
+    <%= render partial: 'shared/signout' %>
+    
     <%= link_to "Create New Post", new_user_post_path(current_user.id), class: "btn btn-primary" %>
     
     <% @users.each do |user| %>
