@@ -17,11 +17,15 @@
         </div>
     </div>
     <div class="row">
-        <div class="col-lg-12 border border-dark">
+        <div class="col-lg-10 border border-dark">
             <% @comments.each do |comment| %>
                 <p class=""><%= comment.author.name %>: <%= comment.body %> </p>
             <% end %>
-
+        </div>
+        <div class="col-lg-2">
+            <% if can? :destroy, comment %>
+                <%= button_to 'Delete', user_post_comment_path(@post.author, @post, comment), method: :delete, class: 'btn btn-light text-danger btn-sm'%>
+            <% end %>
         </div>
     </div>
 </section>
