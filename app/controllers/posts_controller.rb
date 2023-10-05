@@ -27,12 +27,12 @@ class PostsController < ApplicationController
       render :new
     end
   end
-  
+
   def destroy
     @post = Post.find(params[:id])
     authorize! :destroy, @post # Authorize the action
     @post.destroy
-    redirect_to posts_path, notice: 'Post was successfully destroyed.'
+    redirect_to post_path, notice: 'Post was successfully destroyed.'
   end
 
   private
