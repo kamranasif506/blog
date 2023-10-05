@@ -39,7 +39,6 @@ class PostsController < ApplicationController
     else
       redirect_to redirect_url, alert: 'Failed to delete the post.'
     end
-    
   end
 
   private
