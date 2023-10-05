@@ -30,9 +30,16 @@ class PostsController < ApplicationController
 
   def destroy
     @post = Post.find(params[:id])
-    authorize! :destroy, @post # Authorize the action
+    authorize! :destroy, @post
+    @author = @post.author
+    @author.decrement!(:posts_counter)
     @post.destroy
-    redirect_to post_path, notice: 'Post was successfully destroyed.'
+    if @post.destroy
+      redirect_to user_posts_path(current_user), notice: 'post was successfully deleted.'
+    else
+      redirect_to redirect_url, alert: 'Failed to delete the post.'
+    end
+    
   end
 
   private
