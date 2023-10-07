@@ -14,25 +14,24 @@ describe 'Posts API' do
 
       response '200', 'Posts found' do
         schema type: :object,
-          properties: {
-            status: { type: :string },
-            message: { type: :string },
-            data: {
-              type: :array,
-              items: {
-                type: :object,
-                properties: {
-                  id: { type: :integer },
-                  title: { type: :string },
-                  author_id: { type: :integer },
-                  text: { type: :string }
-                }
-              }
-            }
-          }
-        run_test!  
+               properties: {
+                 status: { type: :string },
+                 message: { type: :string },
+                 data: {
+                   type: :array,
+                   items: {
+                     type: :object,
+                     properties: {
+                       id: { type: :integer },
+                       title: { type: :string },
+                       author_id: { type: :integer },
+                       text: { type: :string }
+                     }
+                   }
+                 }
+               }
+        run_test!
       end
-
     end
   end
 end
