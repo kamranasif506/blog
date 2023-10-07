@@ -3,7 +3,7 @@ class Api::V1::PostsController < ApplicationController
 
   def index
     @posts = Post.includes(:author).where(author_id: params[:user_id])
-    @user = User.includes(:posts).find(params[:user_id])
+    # @user = User.includes(:posts).find(params[:user_id])
 
     if @posts
       render json: { status: 'Success', message: 'Posts fetched successfully', data: @posts }, status: :ok
