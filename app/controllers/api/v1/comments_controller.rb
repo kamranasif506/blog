@@ -16,12 +16,11 @@ class Api::V1::CommentsController < ApplicationController
   def create
     @user = User.find(params[:user_id])
     @post = Post.find(params[:post_id])
-    @comments = @post.comments.new(comment_params)
-    @comments.post_id = @post.id
-    @comments.author_id = @user.id
+    @comment = @post.comments.new(comment_params)
+    @comment.author = @user
 
-    if @comments.save
-      render json: { status: 'Success', message: 'Comment Created', data: @comments }, status: :ok
+    if @comment.save
+      render json: { status: 'Success', message: 'Comment Created', data: @comments }, status: :created
     else
       render json: { status: 'Not Found', message: 'Details not found', data: @comments.errors },
              status: :unprocessable_entity
@@ -31,6 +30,6 @@ class Api::V1::CommentsController < ApplicationController
   private
 
   def comment_params
-    params.require(:comment).permit(:text)
+    params.permit(:post_id, :body)
   end
 end
